@@ -1,0 +1,53 @@
+/*
+    Christopher Burns
+    October 4, 2026
+    Assignment 4.2
+*/
+
+h1 {
+    text-align: center;
+    color: rgba(47, 79, 79, 1);
+}
+
+#image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 10%;
+}
+
+h3 {
+    text-align: center;
+    color: rgba(79, 54, 116, 1);
+}
+
+figure {
+    text-align: center;
+}
+
+figure img {
+    width: 250px;
+    height: 350px;
+    object-fit: contain;
+}
+
+figcaption {
+    font-style: italic;
+    font-size: 0.75em;
+    color: rgba(120, 80, 40, 1);
+}
+
+#bottom {
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 20px;
+    float: right;
+}
+
+#bottom a {
+    float: right;
+    text-decoration: none;
+}
+
+#bottom a:hover {
+    text-decoration: underline;
+}
