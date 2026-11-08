@@ -1,0 +1,42 @@
+
+/*
+    Christopher Burns
+    November 8, 2026
+    Assignment 9.3: JavaScript Exercise
+*/
+
+/* JavaScript Reveal Buttons */
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #304E70;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #D6A800;
+    color: #243B55;
+}
+
+button:focus-visible {
+    outline: 3px solid #D6A800;
+    outline-offset: 3px;
+}
+
+span[id^="word"] {
+    font-weight: bold;
+    color: #304E70;
+}
