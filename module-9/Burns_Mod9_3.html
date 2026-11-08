@@ -1,0 +1,120 @@
+
+<!--
+    Christopher Burns
+    November 8, 2026
+    Assignment 9.3: JavaScript Exercise
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Christopher Burns">
+    <meta name="description" content="CSD 340 Assignment 9.3">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSD 340 Web Development with HTML and CSS</title>
+
+    <link rel="stylesheet" href="Burns_Mod2_2.css">
+
+    <script>
+        // JavaScript variables containing the missing words
+        const wordOne = "technology";
+        const wordTwo = "programming";
+        const wordThree = "challenges";
+        const wordFour = "developer";
+
+        // Replaces a placeholder with its corresponding word
+        function revealWord(elementId, word) {
+            document.getElementById(elementId).textContent = word;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <h1>Assignment 9.3: JavaScript - Part 1</h1>
+
+        <h2>My Journey into Software Development</h2>
+
+        <p class="intro">
+            Throughout my career in the Air Force, I have had the
+            opportunity to work in different environments and develop
+            a variety of skills. One of the things that has always
+            interested me is how <span id="wordOne">__________</span>
+            continues to change the way we work and communicate.
+            That interest eventually led me toward software development.
+        </p>
+
+        <p>
+            When I began learning <span id="wordTwo">__________</span>,
+            I quickly realized that understanding the fundamentals
+            was just as important as writing code. Working with
+            different programming languages has helped me understand
+            how applications process information and how individual
+            components work together to create a functioning system.
+        </p>
+
+        <p>
+            One thing I have learned is that software development
+            requires patience and problem-solving. There are always
+            new <span id="wordThree">__________</span> to overcome,
+            whether I am debugging code, implementing a feature,
+            or trying to understand a new concept. Each experience
+            gives me an opportunity to improve my skills.
+        </p>
+
+        <p>
+            My goal is to continue developing my abilities as a
+            <span id="wordFour">__________</span> while expanding
+            my knowledge of computer science and cybersecurity.
+            I enjoy being able to take an idea and turn it into
+            something functional that other people can use.
+        </p>
+
+        <h3>Reveal the Missing Words</h3>
+
+        <div class="button-container">
+            <button type="button"
+                onclick="revealWord('wordOne', wordOne)">
+                Reveal Word 1
+            </button>
+
+            <button type="button"
+                onclick="revealWord('wordTwo', wordTwo)">
+                Reveal Word 2
+            </button>
+
+            <button type="button"
+                onclick="revealWord('wordThree', wordThree)">
+                Reveal Word 3
+            </button>
+
+            <button type="button"
+                onclick="revealWord('wordFour', wordFour)">
+                Reveal Word 4
+            </button>
+        </div>
+
+        <hr>
+
+        <address>
+            <a href="https://www.bellevue.edu/" target="_blank"
+               rel="noopener noreferrer">
+                Bellevue University
+            </a>
+            <p>1000 Galvin Road South</p>
+            <p>Bellevue, NE 68005</p>
+        </address>
+
+        <div id="bottom">
+            <a href="../index.html">Back to Landing Page</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
