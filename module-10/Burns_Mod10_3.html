@@ -1,0 +1,58 @@
+<!-- Christopher Burns | November 15, 2026 | Assignment 10.3: JavaScript - Part 2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Christopher Burns">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <link rel="stylesheet" href="Burns_Mod10_3.css">
+    <script>
+        // Each click toggles between two original SVG graphics.
+        let networkSecure = true;
+        let protectionActive = true;
+
+        function toggleNetwork() {
+            networkSecure = !networkSecure;
+            const image = document.getElementById("networkImage");
+            image.src = networkSecure ? "images/network_secure.svg" : "images/network_compromised.svg";
+            image.alt = networkSecure ? "Secure network connection" : "Compromised network connection";
+            document.getElementById("networkStatus").textContent = networkSecure
+                ? "Network status: Secure connection established."
+                : "Network status: Warning! Suspicious activity detected.";
+        }
+
+        function toggleProtection() {
+            protectionActive = !protectionActive;
+            const image = document.getElementById("shieldImage");
+            image.src = protectionActive ? "images/shield_active.svg" : "images/shield_inactive.svg";
+            image.alt = protectionActive ? "Security protection active" : "Security protection disabled";
+            document.getElementById("shieldStatus").textContent = protectionActive
+                ? "Endpoint protection: Active."
+                : "Endpoint protection: Disabled.";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Assignment 10.3: JavaScript - Part 2</h1>
+        <p>Interactive Cybersecurity Workstation</p>
+    </header>
+    <main id="container">
+        <p>Click either image to change its security state. Hover over an image to see the interactive effect.</p>
+        <div class="dashboard">
+            <section class="card">
+                <h2>Network Monitor</h2>
+                <img id="networkImage" src="images/network_secure.svg" alt="Secure network connection" onclick="toggleNetwork()" tabindex="0" role="button" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleNetwork(); }">
+                <p id="networkStatus" aria-live="polite">Network status: Secure connection established.</p>
+            </section>
+            <section class="card">
+                <h2>Endpoint Protection</h2>
+                <img id="shieldImage" src="images/shield_active.svg" alt="Security protection active" onclick="toggleProtection()" tabindex="0" role="button" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleProtection(); }">
+                <p id="shieldStatus" aria-live="polite">Endpoint protection: Active.</p>
+            </section>
+        </div>
+        <p class="back"><a href="../index.html">Back to Landing Page</a></p>
+    </main>
+</body>
+</html>
