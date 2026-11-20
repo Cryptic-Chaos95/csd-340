@@ -1,0 +1,115 @@
+<!--
+    Christopher Burns
+    November 15, 2026
+    Assignment 11.2: JavaScript - Part 3
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Christopher Burns">
+    <meta name="description" content="Assignment 11.2: JavaScript task list using arrays and DOM events">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <link rel="stylesheet" href="Burns_Mod11_2.css">
+</head>
+<body>
+    <main class="task-card">
+        <h1>Assignment 11.2: JavaScript - Part 3</h1>
+        <p class="instructions">Enter a task below and click Add to add task to list. Click Delete Last Entry to remove last entered item. Click Delete Selected Item to delete item selected in drop down. Click Sort to sort items in the list.</p>
+
+        <label class="visually-hidden" for="taskInput">Task to add</label>
+        <input type="text" id="taskInput" placeholder="Enter a task..." maxlength="200">
+
+        <label class="visually-hidden" for="taskSelect">Select item to delete</label>
+        <select id="taskSelect">
+            <option value="">-- Select item to delete --</option>
+        </select>
+
+        <div class="actions">
+            <button type="button" id="addButton">Add</button>
+            <button type="button" id="deleteLastButton">Delete Last Entry</button>
+            <button type="button" id="deleteSelectedButton">Delete Selected Item</button>
+            <button type="button" id="sortButton">Sort</button>
+        </div>
+
+        <div class="task-list" aria-live="polite">
+            <ol id="taskList"></ol>
+        </div>
+        <p class="portal-link"><a href="../index.html">Back to Landing Page</a></p>
+    </main>
+
+    <script>
+        // Christopher Burns | November 15, 2026 | Assignment 11.2
+        // The array stores the current tasks; the DOM reflects its contents.
+        const tasks = [];
+        const taskInput = document.getElementById('taskInput');
+        const taskSelect = document.getElementById('taskSelect');
+        const taskList = document.getElementById('taskList');
+
+        function renderTasks() {
+            taskSelect.replaceChildren(new Option('-- Select item to delete --', ''));
+            taskList.replaceChildren();
+
+            tasks.forEach((task, index) => {
+                taskSelect.add(new Option(`${index + 1}. ${task}`, String(index)));
+                const listItem = document.createElement('li');
+                listItem.textContent = task;
+                taskList.appendChild(listItem);
+            });
+        }
+
+        function addTask() {
+            const task = taskInput.value.trim();
+            if (!task) {
+                alert('Please enter a task before clicking Add.');
+                taskInput.focus();
+                return;
+            }
+
+            tasks.push(task);
+            renderTasks();
+            taskInput.value = '';
+            taskInput.focus();
+            alert(`Item: ${task} Added as Item ${tasks.length}`);
+        }
+
+        function deleteLastTask() {
+            if (tasks.length === 0) {
+                alert('There are no tasks to delete.');
+                return;
+            }
+            const removedTask = tasks.pop();
+            renderTasks();
+            alert(`Deleted last entry: ${removedTask}`);
+        }
+
+        function deleteSelectedTask() {
+            if (taskSelect.value === '') {
+                alert('Please select an item to delete.');
+                return;
+            }
+            const index = Number(taskSelect.value);
+            const removedTask = tasks.splice(index, 1)[0];
+            renderTasks();
+            alert(`Deleted selected item: ${removedTask}`);
+        }
+
+        function sortTasks() {
+            tasks.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+            renderTasks();
+            alert('The to-do list has been sorted alphabetically.');
+        }
+
+        document.getElementById('addButton').addEventListener('click', addTask);
+        document.getElementById('deleteLastButton').addEventListener('click', deleteLastTask);
+        document.getElementById('deleteSelectedButton').addEventListener('click', deleteSelectedTask);
+        document.getElementById('sortButton').addEventListener('click', sortTasks);
+        taskInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') addTask();
+        });
+
+        renderTasks();
+    </script>
+</body>
+</html>

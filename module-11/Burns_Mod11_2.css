@@ -1,0 +1,19 @@
+/* Christopher Burns | November 15, 2026 | Assignment 11.2: JavaScript - Part 3 */
+* { box-sizing: border-box; }
+body { margin: 0; background: #f3f3f9; font-family: Arial, Helvetica, sans-serif; color: #252525; }
+.task-card { width: min(92%, 635px); margin: 16px auto; background: #fff; border-radius: 9px; padding: 20px 16px 16px; box-shadow: 0 2px 15px rgba(0,0,0,.1); }
+h1 { font-size: 2rem; margin: 14px 0 20px; }
+.instructions { margin-bottom: 18px; }
+input, select { display: block; width: 85%; max-width: 510px; padding: 12px; margin: 0 0 16px; font: inherit; border: 2px solid #ccc; border-radius: 5px; background: white; }
+.actions { display: flex; flex-wrap: wrap; gap: 20px; margin: 16px 0 30px; }
+button { border: 0; background: #0074c9; color: white; padding: 10px 16px; border-radius: 5px; font: inherit; cursor: pointer; }
+button:hover { background: #005b9d; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #8cbcff; outline-offset: 2px; }
+.task-list { background: #efedff; border-radius: 4px; min-height: 16px; padding: 0 12px; }
+.task-list ol { padding: 8px 0 8px 24px; margin: 0; }
+.task-list ol:empty { padding: 8px 0; }
+.task-list li { padding: 4px 0; }
+.portal-link { text-align: right; margin: 14px 0 0; }
+.portal-link a { color: #006cba; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 520px) { input, select { width: 100%; } h1 { font-size: 1.55rem; } .actions { gap: 8px; } }
